@@ -1,0 +1,16 @@
+Package: derecksLabTools
+Title: A tool belt for my work at Coarfa lab Baylor College of Medicine
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Dereck",
+           family = "de Mezquita",
+           role = c("aut", "cre"),
+           email = "dereck@demezquita.com",
+           comment = c(ORCID = "0000-0002-9307-6762"))
+Description: This package includes a number of tools; these all aid my workflow and process.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: readxl, openxlsx
