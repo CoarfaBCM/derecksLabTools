@@ -81,17 +81,15 @@ table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE
             return(NA_frame)
         })()
         
-        if(nrow(col) == max(which(is.na(col[, 1]) & is.na(col[, 2])))) {
-            bound <- rbind(NA_frame, col)
+        if(nrow(col) != max(which(is.na(col[, 1]) & is.na(col[, 2])))) {
+            bound <- rbind(col, NA_frame)
             return(bound)
         } else {
-            bound <- rbind(NA_frame, col, NA_frame)
-            return(bound)
+            return(col)
         }
     })
 
     bound <- do.call("rbind", NA_padded)
-    bound <- bound[-1,]
 
     starts <- grepl(table_id, bound$one)
     ends <- is.na(bound$one)
