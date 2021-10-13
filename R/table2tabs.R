@@ -57,12 +57,37 @@ table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE
         return(column)
     })
 
-    NA_padded <- lapply(renamed_cols, function(col) {
-        return(rbind((function() {
+    removed_extra_NA <- lapply(renamed_cols, function(column) {
+        map <- is.na(column[, 1]) & is.na(column[, 2])
+        
+        # small algorithm for removing extra NAs at end
+        accum <- 0L
+        for (i in seq_along(map)) {
+            accum <- accum + map[i]
+            if(accum > 0 & map[i + 1]) {
+                break
+            } else {
+                accum <- 0L
+            }
+        }
+        return(column[1:(i), ])
+    })
+
+    # if the last row is not NA then add it if not pad at top
+    NA_padded <- lapply(removed_extra_NA, function(col) {
+        NA_frame <- (function() {
             NA_frame <- data.frame(NA, NA)
             colnames(NA_frame) <- c("one", "two")
             return(NA_frame)
-        })(), col))
+        })()
+        
+        if(nrow(col) == max(which(is.na(col[, 1]) & is.na(col[, 2])))) {
+            bound <- rbind(NA_frame, col)
+            return(bound)
+        } else {
+            bound <- rbind(NA_frame, col, NA_frame)
+            return(bound)
+        }
     })
 
     bound <- do.call("rbind", NA_padded)
