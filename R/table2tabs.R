@@ -59,7 +59,7 @@ table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE
 
     removed_extra_NA <- lapply(renamed_cols, function(column) {
         map <- is.na(column[, 1]) & is.na(column[, 2])
-        
+
         # small algorithm for removing extra NAs at end
         accum <- 0L
         for (i in seq_along(map)) {
@@ -80,7 +80,7 @@ table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE
             colnames(NA_frame) <- c("one", "two")
             return(NA_frame)
         })()
-        
+
         if(nrow(col) != max(which(is.na(col[, 1]) & is.na(col[, 2])))) {
             bound <- rbind(col, NA_frame)
             return(bound)
@@ -91,7 +91,8 @@ table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE
 
     bound <- do.call("rbind", NA_padded)
 
-    starts <- grepl(table_id, bound$one)
+    # starts <- grepl(table_id, bound$one)
+    starts <- table_id == bound$one
     ends <- is.na(bound$one)
 
     start_indices <- which(starts)
