@@ -5,28 +5,40 @@
 #' Your combined GSEA reports should look something like this:
 #'
 #' \figure{gsea-combined-reports.png}
+#' \figure{hallmark-enrichment-heatmap.png}
 #'
-#' @param gsea_combined_profiles [type: character, default: NULL] this is a path to a prepared excel file. This file should contian your combined reports (all comparisons from GSEA bound together; use Cristian's tool to combine reports: \href{https://github.com/CoarfaBCM/CoarfaLab-tools/blob/master/ccPythonBase/bin/combineGSEAReports.cc.py}{combineGSEAReports.cc.py}). Then combine these reports into a single excel, each tab represents comparisons per pathway collection.
-#' @param clean_names_regex [type: character, default: "EdgeR\\.TMM_Exact_|EdgeR\\.upperquartile_LRT_RUVr_|\\.rnk\\.NES"] a regex expression to remove strings from the comparison names. Often comparisons are preceeeded by some prefix of the parameters of which the rank files were created, normalisation etc.
-#' @param scale_bounds [type: character, default: NULL] if provided will set the max and min of the scale for heatmaps; affects colour intensity.
-#' @param reo_order_cols [type: vector<numeric>, default: NULL] if provided will re-order the columns for every heatmap. You must know the order and number of columns you wish before supplying.
-#' @param clust_row [type: logical, default: FALSE] true uses pheatmap's clustering on rows; pathways.
-#' @param clust_col [type: logical, default: FALSE] true uses pheatmap's clustering on columns; comparisons.
-#' @param show_rownames [type: logical, default: FALSE] true shows the rownames; pathways.
-#' @param show_colnames [type: logical, default: FALSE] true shows the column names; comparisons.
+#' @param gsea_combined_profiles \[type: character, default: NULL\] this is a path to a prepared excel file. This file should contian your combined reports (all comparisons from GSEA bound together; use Cristian's tool to combine reports: \href{https://github.com/CoarfaBCM/CoarfaLab-tools/blob/master/ccPythonBase/bin/combineGSEAReports.cc.py}{combineGSEAReports.cc.py}). Then combine these reports into a single excel, each tab represents comparisons per pathway collection.
+#' @param clean_names_regex \[type: character, default: "EdgeR\\.TMM_Exact_|EdgeR\\.upperquartile_LRT_RUVr_|\\.rnk\\.NES"\] a regex expression to remove strings from the comparison names. Often comparisons are preceeeded by some prefix of the parameters of which the rank files were created, normalisation etc.
+#' @param scale_bounds \[type: character, default: NULL\] if provided will set the max and min of the scale for heatmaps; affects colour intensity.
+#' @param reo_order_cols \[type: vector<numeric>, default: NULL\] if provided will re-order the columns for every heatmap. You must know the order and number of columns you wish before supplying.
+#' @param clust_row \[type: logical, default: FALSE\] true uses pheatmap's clustering on rows; pathways.
+#' @param clust_col \[type: logical, default: FALSE\] true uses pheatmap's clustering on columns; comparisons.
+#' @param show_rownames \[type: logical, default: FALSE\] true shows the rownames; pathways.
+#' @param show_colnames \[type: logical, default: FALSE\] true shows the column names; comparisons.
 #'
 #' @return
 #' @export
 #'
 #' @examples
+#' path <- system.file(
+#'     "extdata",
+#'     "GSEA-combined-enrichment-profiles.xlsx",
+#'     package = "derecksLabTools"
+#' )
 #'
-#' path <- system.file("extdata", "GSEA-combined-enrichment-profiles.xlsx", package = "derecksLabTools")
-#'
-#' heatmaps <- RNAseq_GSEAheatmaps("path, scale_bounds = NULL, reo_order_cols = NULL, clust_row = TRUE, clust_col = FALSE, show_rownames = TRUE, show_colnames = TRUE)
-#'
-#' pdf("./hallmark-enrichment-heatmap.pdf", width = 7, height = 10
+#' heatmaps <- RNAseq_GSEAheatmaps(
+#'     path,
+#'     scale_bounds = NULL,
+#'     reo_order_cols = NULL,
+#'     clust_row = TRUE,
+#'     clust_col = FALSE,
+#'     show_rownames = TRUE,
+#'     show_colnames = TRUE
+#' )
+#' pdf("./hallmark-enrichment-heatmap.pdf", width = 7, height = 10)
 #' print(heatmaps$hallmark)
 #' dev.off()
+
 
 RNAseq_GSEAheatmaps <- function(gsea_combined_profiles, clean_names_regex = "EdgeR\\.TMM_Exact_|EdgeR\\.upperquartile_LRT_RUVr_|\\.rnk\\.NES", scale_bounds = NULL, reo_order_cols = NULL, clust_row = TRUE, clust_col = FALSE, show_rownames = FALSE, show_colnames = FALSE) {
     if(tools::file_ext(gsea_combined_profiles) != "xlsx") {
