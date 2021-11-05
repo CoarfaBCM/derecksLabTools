@@ -4,6 +4,7 @@ Dereck's lab tools package - installable via devtools.
 
 ## Functions
 
+- `RNAseq_GSEAheatmaps()`: Create heatmaps from GSEA workbook.
 - `table2tabs()`: Parse Excel tables from one sheet to named tabs.
 - `tabs2table()`: Combine Excel sheets to single table.
 
