@@ -33,7 +33,7 @@ path <- system.file(
     package = "derecksLabTools"
 )
 #'
-heatmaps <- RNAseq_GSEAheatmaps(
+heatmaps <- derecksLabTools::RNAseq_GSEAheatmaps(
     path,
     scale_bounds = NULL,
     reo_order_cols = NULL,
