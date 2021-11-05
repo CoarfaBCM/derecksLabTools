@@ -12,9 +12,10 @@
 #' @param out_file String; the name of the output file - must have extension `.xlsx`.
 #' @param return Boolean \[default FALSE\]; if TRUE returns the parsed data.
 #' @return Returns if return argument set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
-#' @example
+#' @examples
+#' path <- system.file("extdata", "comparisons-setup.xlsx", package = "derecksLabTools")
 #' table2tabs(
-#'     file = "./data/table2tabs/comparisons-setup.xlsx",
+#'     file = path,
 #'     table_id = "ID",
 #'     out_file = "output-file.xlsx",
 #'     return = FALSE

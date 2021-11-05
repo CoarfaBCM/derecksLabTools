@@ -7,9 +7,11 @@
 #' @param out_file String; the name of the output file - must have extension `.xlsx`.
 #' @param return Boolean \[default FALSE\]; if TRUE returns the parsed data.
 #' @return Returns if return arguemnt set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
-#' @example
+#' @examples
+#' dir.create("./test")
+#' file.copy(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), "./test")
 #' tabs2table(
-#'     dir = "./mycomparisons-are-here/",
+#'     dir = "./test",
 #'     columns = 3,
 #'     out_file = "output-file.xlsx",
 #'     return = FALSE
