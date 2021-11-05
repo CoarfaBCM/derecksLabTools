@@ -26,4 +26,14 @@ The typical format is; colnames: "ID", "comparison_name", where ID designates th
 \details{
 Note that you can have other content on your excel sheet as long as it does not contain the table_id string used for parsing.
 }
+\examples{
+path <- system.file("extdata", "comparisons-setup.xlsx", package = "derecksLabTools")
+table2tabs(
+    file = path,
+    table_id = "ID",
+    out_file = "output-file.xlsx",
+    return = FALSE
+)
+
+}
 \keyword{table2tabs}

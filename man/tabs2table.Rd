@@ -21,4 +21,15 @@ Returns if return arguemnt set to TRUE; a list of \code{data.frame}s - might be 
 \description{
 Combine all sheets (tabs) from one or more Excel workbooks to a single table (an index is generated - first tab), padding is added (empty rows and columns) between the indvidual tables. This is useful for getting an overview of your data and avoiding having to click n tabs.
 }
+\examples{
+dir.create("./test")
+file.copy(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), "./test")
+tabs2table(
+    dir = "./test",
+    columns = 3,
+    out_file = "output-file.xlsx",
+    return = FALSE
+)
+
+}
 \keyword{tabs2table}

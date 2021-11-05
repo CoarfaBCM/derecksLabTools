@@ -1,6 +1,6 @@
 Package: derecksLabTools
 Title: A tool belt for my work at Coarfa lab Baylor College of Medicine
-Version: 0.0.0.9000
+Version: 0.0.9
 Authors@R: 
     person(given = "Dereck",
            family = "de Mezquita",
@@ -13,4 +13,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Imports: readxl, openxlsx
+Imports: 
+    readxl (>= 1.3.1),
+    openxlsx (>= 4.2.3),
+    pheatmap (>= 1.0.12)
