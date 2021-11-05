@@ -11,6 +11,42 @@ Dereck's lab tools package - installable via devtools.
 
 Load the library with `library("derecksLabTools")` or call every function preceeded with: `derecksLabTools::`.
 
+### `RNAseq_GSEAheatmaps()`
+
+Takes in a compiled GSEA report and creates heatmaps.
+
+Input data format as follows:
+
+![](man/figures/gsea-combined-reports.png)
+
+Here is an example of the output:
+
+![](man/figures/hallmark-enrichment-heatmap.png)
+
+Usage:
+
+```r
+path <- system.file(
+    "extdata",
+    "GSEA-combined-enrichment-profiles.xlsx",
+    package = "derecksLabTools"
+)
+#'
+heatmaps <- RNAseq_GSEAheatmaps(
+    path,
+    scale_bounds = NULL,
+    reo_order_cols = NULL,
+    clust_row = TRUE,
+    clust_col = FALSE,
+    show_rownames = TRUE,
+    show_colnames = TRUE
+)
+
+pdf("./hallmark-enrichment-heatmap.pdf", width = 7, height = 10)
+print(heatmaps$hallmark)
+dev.off()
+```
+
 ### `table2tabs()`
 
 Parse Excel tables from one sheet to named tabs
