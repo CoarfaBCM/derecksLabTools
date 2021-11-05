@@ -1,4 +1,7 @@
 
+# sensitive files and tokens
+*.sensitive.*
+
 .DS_Store
 tests/
 
