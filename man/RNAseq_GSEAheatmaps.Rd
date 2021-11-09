@@ -17,7 +17,7 @@ RNAseq_GSEAheatmaps(
 )
 }
 \arguments{
-\item{gsea_combined_profiles}{[type: character, default: NULL] this is a path to a prepared excel file. This file should contian your combined reports (all comparisons from GSEA bound together; use Cristian's tool to combine reports: \href{https://github.com/CoarfaBCM/CoarfaLab-tools/blob/master/ccPythonBase/bin/combineGSEAReports.cc.py}{combineGSEAReports.cc.py}). Then combine these reports into a single excel, each tab represents comparisons per pathway collection.}
+\item{gsea_combined_profiles}{[type: character, default: NULL] this is a path to a prepared excel file. This file should contian your combined reports (all comparisons from GSEA bound together; use Cristian's tool to combine reports. Then combine these reports into a single excel, each tab represents comparisons per pathway collection.}
 
 \item{clean_names_regex}{[type: character, default: "EdgeR\\.TMM_Exact_|EdgeR\\.upperquartile_LRT_RUVr_|\\.rnk\\.NES"] a regex expression to remove strings from the comparison names. Often comparisons are preceeeded by some prefix of the parameters of which the rank files were created, normalisation etc.}
 
