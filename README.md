@@ -15,15 +15,15 @@ Load the library with `library("derecksLabTools")` or call every function precee
 
 ### `excelList()`
 
-Returns a list of desired type of a `data.frame` default is `data.table`. 
+Returns a list of desired type of a `data.frame` default is `data.table`. You can pass a coercion function either as a string or raw function, see usage:
 
 ```r
-excelList(
+derecksLabTools::excelList(
     system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"),
     FUN_type = as.data.frame
 )
 
-excelList(
+derecksLabTools::excelList(
     system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"),
     FUN_type = "data.table::as.data.table"
 )
