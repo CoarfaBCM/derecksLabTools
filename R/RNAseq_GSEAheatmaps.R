@@ -90,9 +90,12 @@ RNAseq_GSEAheatmaps <- function(gsea_combined_profiles, clean_names_regex = "Edg
     plots <- mapply(function(db, db_name) {
         db <- db[abs(rowSums(db)) > 0,]
 
+        col <- ncol(db)
+        row <- nrow(db)
+        
         plot <- pheatmap::pheatmap(
             db,
-            main = stringr::str_interp('Pathway enrichment in ${toupper(db_name)}\n${ncol(db)} comparisons, ${nrow(db)} pathways'),
+            main = stringr::str_interp('Pathway enrichment in ${toupper(db_name)}\n${col} comparisons, ${row} pathways'),
             breaks = heatmap_breaks,
             color = colours,
             cluster_rows = clust_row,
