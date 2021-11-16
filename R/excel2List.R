@@ -13,12 +13,12 @@
 #'
 #' @examples
 #'
-#' excelList(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), FUN_type = as.data.frame)
+#' excel2List(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), FUN_type = as.data.frame)
 #'
-#' excelList(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), FUN_type = "data.table::as.data.table")
+#' excel2List(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), FUN_type = "data.table::as.data.table")
 #'
 
-excelList <- function(path, FUN_type = "data.table::data.table", ...) {
+excel2List <- function(path, FUN_type = "data.table::data.table", ...) {
     if(!is.function(FUN_type) & is.character(FUN_type)) {
         FUN_type <- eval(parse(text = FUN_type))
     }

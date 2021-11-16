@@ -7,23 +7,23 @@ Dereck's lab tools package - installable via devtools.
 - `RNAseq_GSEAheatmaps()`: Create heatmaps from GSEA workbook.
 - `table2tabs()`: Parse Excel tables from one sheet to named tabs.
 - `tabs2table()`: Combine Excel sheets to single table.
-- `excelList()`: Read an Excel workbook to a named list; allows defining the type of returned dataframe - default data.table.
+- `excel2List()`: Read an Excel workbook to a named list; allows defining the type of returned dataframe - default data.table.
 
 ## Tutorial
 
 Load the library with `library("derecksLabTools")` or call every function preceeded with: `derecksLabTools::`.
 
-### `excelList()`
+### `excel2List()`
 
 Returns a list of desired type of a `data.frame` default is `data.table`. You can pass a coercion function either as a string or raw function, see usage:
 
 ```r
-derecksLabTools::excelList(
+derecksLabTools::excel2List(
     system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"),
     FUN_type = as.data.frame
 )
 
-derecksLabTools::excelList(
+derecksLabTools::excel2List(
     system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"),
     FUN_type = "data.table::as.data.table"
 )
