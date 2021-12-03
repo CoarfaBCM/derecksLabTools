@@ -4,14 +4,39 @@ Dereck's lab tools package - installable via devtools.
 
 ## Functions
 
+- `valueCoordinates()`: get the coordinates for values in a `data.table`/`data.frame`.
+- `excel2List()`: Read an Excel workbook to a named list; allows defining the type of returned dataframe - default data.table.
 - `RNAseq_GSEAheatmaps()`: Create heatmaps from GSEA workbook.
 - `table2tabs()`: Parse Excel tables from one sheet to named tabs.
 - `tabs2table()`: Combine Excel sheets to single table.
-- `excel2List()`: Read an Excel workbook to a named list; allows defining the type of returned dataframe - default data.table.
 
 ## Tutorial
 
 Load the library with `library("derecksLabTools")` or call every function preceeded with: `derecksLabTools::`.
+
+### `valueCoordinates()`
+
+Sometimes knowing NAs or X value are present in your data is not enough, you want to know where exactly.
+
+This function does: `data == value | is.na(data)`
+
+To create a truth table and then retrieves the column and row of where the value occurred as a data.frame.
+
+```r
+test <- head(iris, 10)
+test[3:5, 1:2] <- NA
+valueCoordinates(test, value = NA)
+```
+
+```
+  column row
+1      1   3
+2      2   4
+3      1   5
+4      2   3
+5      1   4
+6      2   5
+```
 
 ### `excel2List()`
 
