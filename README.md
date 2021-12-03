@@ -25,7 +25,7 @@ To create a truth table and then retrieves the column and row of where the value
 ```r
 test <- head(iris, 10)
 test[3:5, 1:2] <- NA
-valueCoordinates(test, value = NA)
+derecksLabTools::valueCoordinates(test, value = NA)
 ```
 
 ```
