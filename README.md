@@ -74,19 +74,31 @@ path <- system.file(
     "GSEA-combined-enrichment-profiles.xlsx",
     package = "derecksLabTools"
 )
-#'
+
 heatmaps <- derecksLabTools::RNAseq_GSEAheatmaps(
-    path,
+	path,
     scale_bounds = NULL,
     reo_order_cols = NULL,
     clust_row = TRUE,
     clust_col = FALSE,
     show_rownames = TRUE,
-    show_colnames = TRUE
+	show_colnames = TRUE
 )
 
-pdf("./hallmark-enrichment-heatmap.pdf", width = 7, height = 10)
+pdf("./outputs/20211220_GSEA_results/gsea_results_bp/gobp-enrichment-heatmap.pdf", width = 7, height = 10)
+print(heatmaps$gobp)
+dev.off()
+
+pdf("./outputs/20211220_GSEA_results/gsea_results_hallmark/hallmark-enrichment-heatmap.pdf", width = 7, height = 10)
 print(heatmaps$hallmark)
+dev.off()
+
+pdf("./outputs/20211220_GSEA_results/gsea_results_kegg/kegg-enrichment-heatmap.pdf", width = 7, height = 10)
+print(heatmaps$kegg)
+dev.off()
+
+pdf("./outputs/20211220_GSEA_results/gsea_results_reactome/reactome-enrichment-heatmap.pdf", width = 7, height = 10)
+print(heatmaps$reactome)
 dev.off()
 ```
 
