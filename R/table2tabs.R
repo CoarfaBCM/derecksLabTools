@@ -24,8 +24,8 @@
 #' @export
 #'
 
-table2tabs <- function(file = "", table_id = "ID", out_file = "", return = FALSE) {
-    raw_data <- readxl::read_excel(file, col_names = FALSE)
+table2tabs <- function(file = "", out_file = "", table_id = "ID", return = FALSE) {
+    raw_data <- suppressMessages(readxl::read_excel(file, col_names = FALSE))
 
     sub_side <- raw_data[,min(which(grepl(table_id, raw_data))):ncol(raw_data)]
 
