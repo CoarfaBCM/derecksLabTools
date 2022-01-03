@@ -9,6 +9,7 @@ Dereck's lab tools package - installable via devtools.
 - `RNAseq_GSEAheatmaps()`: Create heatmaps from GSEA workbook.
 - `table2tabs()`: Parse Excel tables from one sheet to named tabs.
 - `tabs2table()`: Combine Excel sheets to single table.
+- `cite_RNAseqGSEA`: Prints methods used for RNAseq and GSEA analysis, allows for variable interpolation to print a custom message.
 
 ## Tutorial
 
@@ -166,6 +167,30 @@ derecksLabTools::tabs2table(
     out_file = "output-file.xlsx",
     return = FALSE
 )
+```
+
+### `cite_RNAseqGSEA()`
+
+Prints methods used for RNAseq and GSEA analysis, allows for variable interpolation to print a custom message.
+
+```r
+cite_RNAseqGSEA(fold_changes = c(1.5, 2.0), normalisation_type = "TMM")
+```
+
+```
+Methods: RNA seq and GSEA processing
+
+RNAseq data was trimmed using cutadapt[1] v1.18 and fastQC[2] v0.11.9. Mapping was done with Homo_sapiens.GRCh38.101.gtf[3] as a reference genome. Trim and mapping quality was assesed with the multiqc[4] utility version 1.8. Differential expression analysis was done with use of the edgeR[5] package version 3.32.1 and EDAseq[6] 2.24.0. An FDR cutoff of 0.05 was selected and fold change cutoff: c("1.5, ", "2, "); TMM normalisation was used. GSEA[7, 8] (gene set enrichment analysis) was run with GSEA version 3.0. We used msigdb[8, 8] 7.3 human gene set files including: c2.cp.kegg.v7.3.symbols.gmt, c2.cp.reactome.v7.3.symbols.gmt, c5.go.bp.v7.3.symbols.gmt, h.all.v7.3.symbols.gmt as reference pathways. Produced reports were filtered for an FDR cutoff of 0.25, these were then used to create heatmaps.
+
+[1] Martin, Marcel. "Cutadapt Removes Adapter Sequences from High-Throughput Sequencing Reads." EMBnet.journal, vol. 17, no. 1, 2011, p. 10., doi:10.14806/ej.17.1.200.
+[2] Andrews, S. (2010). FastQC: A Quality Control Tool for High Throughput Sequence Data [Online] http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+[3] Schneider, Valerie A., et al. "Evaluation of GRCh38 and De Novo Haploid Genome Assemblies Demonstrates the Enduring Quality of the Reference Assembly." Genome Research, vol. 27, no. 5, 2017, pp. 849–864., doi:10.1101/gr.213611.116.
+[4] Ewels, Philip, et al. "MultiQC: Summarize Analysis Results for Multiple Tools and Samples in a Single Report." Bioinformatics, vol. 32, no. 19, 2016, pp. 3047–3048., doi:10.1093/bioinformatics/btw354.
+[5] Robinson, M. D., et al. "EdgeR: a Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data." Bioinformatics, vol. 26, no. 1, 2009, pp. 139–140., doi:10.1093/bioinformatics/btp616.
+[6] Risso, Davide, et al. "GC-Content Normalization for RNA-Seq Data." BMC Bioinformatics, vol. 12, no. 1, 2011, p. 480., doi:10.1186/1471-2105-12-480.
+[7] Subramanian, A., et al. "Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles." Proceedings of the National Academy of Sciences, vol. 102, no. 43, 2005, pp. 15545–15550., doi:10.1073/pnas.0506580102.
+[8] Liberzon, A., et al. "Molecular Signatures Database (MSigDB) 3.0." Bioinformatics, vol. 27, no. 12, 2011, pp. 1739–1740., doi:10.1093/bioinformatics/btr260.
+[9] Liberzon, Arthur, et al. "The Molecular Signatures Database Hallmark Gene Set Collection." Cell Systems, vol. 1, no. 6, 2015, pp. 417–425., doi:10.1016/j.cels.2015.12.004.
 ```
 
 ## Install

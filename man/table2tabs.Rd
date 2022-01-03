@@ -4,14 +4,14 @@
 \alias{table2tabs}
 \title{Parse Excel tables from one sheet to named tabs}
 \usage{
-table2tabs(file = "", table_id = "ID", out_file = "", return = FALSE)
+table2tabs(file = "", out_file = "", table_id = "ID", return = FALSE)
 }
 \arguments{
 \item{file}{String; path to a file type xlsx.}
 
-\item{table_id}{String [default "ID"]; this is used for identifying the individual tables on a single sheet.}
-
 \item{out_file}{String; the name of the output file - must have extension \code{.xlsx}.}
+
+\item{table_id}{String [default "ID"]; this is used for identifying the individual tables on a single sheet.}
 
 \item{return}{Boolean [default FALSE]; if TRUE returns the parsed data.}
 }
