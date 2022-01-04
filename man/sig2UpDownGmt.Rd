@@ -4,7 +4,12 @@
 \alias{sig2UpDownGmt}
 \title{Signature(s) files to GMT list; split up and down (inclusive) based on log2fc}
 \usage{
-sig2UpDownGmt(signatures_dir, pattern = NULL, to_upper = TRUE)
+sig2UpDownGmt(
+  signatures_dir,
+  pattern = NULL,
+  gsub_cols_regex = "EdgeR\\\\.upperquartile_LRT_RUVr_",
+  to_upper = TRUE
+)
 }
 \arguments{
 \item{signatures_dir}{[type: character] A directory containing signature files.}
