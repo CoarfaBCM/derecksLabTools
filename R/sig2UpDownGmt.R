@@ -2,6 +2,7 @@
 #'
 #' @param signatures_dir \[type: character\] A directory containing signature files.
 #' @param pattern \[type: character<regex>, default: NULL\] A regular expression to match files on read-in.
+#' @param gsub_cols_regex \[type: character, default: "EdgeR\\.upperquartile_LRT_RUVr_"\] A regular expression to clean comparison names and thus pathway names.
 #' @param to_upper \[type: logical, default: TRUE\] Convert genes to uppercase; typically yes, lowercase genes are mice type - GSEA works with uppercase humanised genes.
 #'
 #' @return list<character>
