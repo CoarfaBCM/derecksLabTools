@@ -12,16 +12,16 @@
 
 # Signatures are split into up and down genes (down inclusive)
 
-sig2UpDownGmt <- function(signatures_dir, pattern = NULL, to_upper = TRUE) {
-    paths <- list.files("./custom-gmt/signatures-all-fc/", full.names = TRUE, pattern = pattern)
-    names(paths) <- list.files("./custom-gmt/signatures-all-fc/", pattern = pattern)
+sig2UpDownGmt <- function(signatures_dir, pattern = NULL, gsub_cols_regex = "EdgeR\\.upperquartile_LRT_RUVr_", to_upper = TRUE) {
+    paths <- list.files(signatures_dir, full.names = TRUE, pattern = pattern)
+    names(paths) <- list.files(signatures_dir, pattern = pattern)
 
     gmt <- lapply(paths, function(path) { # read all files
         return(as.data.frame(suppressWarnings(data.table::fread(path))))
     })
 
     gmt <- lapply(gmt, function(signature) { # rename columns
-        colnames(signature) <- c("genes", gsub("EdgeR\\.upperquartile_LRT_RUVr_", "", colnames(signature)[2]))
+        colnames(signature) <- c("genes", gsub(gsub_cols_regex, "", colnames(signature)[2]))
         return(signature)
     })
 
