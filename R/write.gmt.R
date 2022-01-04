@@ -12,10 +12,10 @@
 
 write.gmt <- function(list_gmt, output_file) {
     list_gmt <- lapply(list_gmt, function(pathway) {
-        return(c(pathway, "\n"))
+        return(paste0(pathway, collapse = "\t"))
     })
 
     list_gmt <- unlist(unname(list_gmt))
 
-    writeLines(list_gmt, output_file, sep = "\t") # will rely on writeLines to give path errors
+    writeLines(list_gmt, output_file, sep = "\n") # will rely on writeLines to give path errors
 }
