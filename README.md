@@ -9,7 +9,10 @@ Dereck's lab tools package - installable via devtools.
 - `RNAseq_GSEAheatmaps()`: Create heatmaps from GSEA workbook.
 - `table2tabs()`: Parse Excel tables from one sheet to named tabs.
 - `tabs2table()`: Combine Excel sheets to single table.
-- `cite_RNAseqGSEA`: Prints methods used for RNAseq and GSEA analysis, allows for variable interpolation to print a custom message.
+- `cite_RNAseqGSEA()`: Prints methods used for RNAseq and GSEA analysis, allows for variable interpolation to print a custom message.
+- `read.gmt()`: Read a `gmt` type file to a list of pathways.
+- `write.gmt()`: Write a list of gmt pathways to a formatted file; new lines per pathway and `\t` as a separator.
+- `sig2UpDownGmt()`: Signature(s) files to GMT list; split up and down (inclusive) based on log2fc
 
 ## Tutorial
 
