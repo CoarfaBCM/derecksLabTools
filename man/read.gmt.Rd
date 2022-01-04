@@ -17,6 +17,3 @@ list<character>
 \description{
 Read a .gmt pathway type file as a list.
 }
-\examples{
-
-}

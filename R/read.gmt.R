@@ -6,8 +6,6 @@
 #' @return list<character>
 #' @export
 #'
-#' @examples
-#'
 
 read.gmt <- function(file, remove_description = FALSE) {
     if(!grepl("\\.gmt$", file)[1]) {
@@ -19,9 +17,7 @@ read.gmt <- function(file, remove_description = FALSE) {
     names(geneSetDB) <- sapply(geneSetDB, "[", 1) # move the names column as the names of the list
 
     if(remove_description) {
-        geneSetDB <- lapply(geneSetDB, "[", -1:-2) # remove name and description columns
-    } else {
-        geneSetDB <- lapply(geneSetDB, "[", -1) # remove only name column
+        geneSetDB <- lapply(geneSetDB, "[", -2) # remove description
     }
 
     geneSetDB <- lapply(geneSetDB, function(x) {
