@@ -9,7 +9,7 @@
 #'
 #' @param gsea_combined_profiles \[type: character, default: NULL\] this is a path to a prepared excel file. This file should contian your combined reports (all comparisons from GSEA bound together; use Cristian's tool to combine reports. Then combine these reports into a single excel, each tab represents comparisons per pathway collection.
 #' @param clean_names_regex \[type: character, default: "EdgeR\\.TMM_Exact_|EdgeR\\.upperquartile_LRT_RUVr_|\\.rnk\\.NES"\] a regex expression to remove strings from the comparison names. Often comparisons are preceeeded by some prefix of the parameters of which the rank files were created, normalisation etc.
-#' @param scale_bounds \[type: character, default: NULL\] if provided will set the max and min of the scale for heatmaps; affects colour intensity.
+#' @param scale_bounds \[type: vector<numeric>, default: NULL\] if provided will set the max and min of the scale for heatmaps; affects colour intensity.
 #' @param reo_order_cols \[type: vector<numeric>, default: NULL\] if provided will re-order the columns for every heatmap. You must know the order and number of columns you wish before supplying.
 #' @param clust_row \[type: logical, default: FALSE\] true uses pheatmap's clustering on rows; pathways.
 #' @param clust_col \[type: logical, default: FALSE\] true uses pheatmap's clustering on columns; comparisons.
