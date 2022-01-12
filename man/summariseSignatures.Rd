@@ -2,7 +2,7 @@
 % Please edit documentation in R/summariseSignatures.R
 \name{summariseSignatures}
 \alias{summariseSignatures}
-\title{Summarise how many genes up and down from a combined signature file.}
+\title{Summarise how many genes up and down from a combined signature file}
 \usage{
 summariseSignatures(
   combined_signatures_file,
