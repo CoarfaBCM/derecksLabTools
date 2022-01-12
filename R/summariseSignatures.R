@@ -26,11 +26,12 @@ summariseSignatures <- function(combined_signatures_file, output_file, gsub_rows
 
     summaries <- cbind(t(as.data.frame(up)), t(as.data.frame(down)), unlist(up) + unlist(down))
 
+    data.table::setDT(summaries, keep.rownames = "comparison")
     colnames(summaries) <- c("up", "down", "total")
 
-    rownames(summaries) <- gsub(gsub_rows_regex, "", rownames(summaries))
+    summarise[, comparison := gsub(gsub_rows_regex, "", comparison)]
 
-    write.csv(summaries, file = output_file)
+    data.table::fwrite(summaries, file = output_file)
 
-    return(data.table::data.table(summaries, keep.rownames = "comparison"))
+    return(summarise)
 }
