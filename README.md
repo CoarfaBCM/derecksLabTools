@@ -13,6 +13,7 @@ Dereck's lab tools package - installable via devtools.
 - `read.gmt()`: Read a `gmt` type file to a list of pathways.
 - `write.gmt()`: Write a list of gmt pathways to a formatted file; new lines per pathway and `\t` as a separator.
 - `sig2UpDownGmt()`: Signature(s) files to GMT list; split up and down (inclusive) based on log2fc
+- `summariseSignatures()`: Summarise how many genes up and down from a combined signature file.
 
 ## Tutorial
 
