@@ -1,4 +1,4 @@
-#' Summarise how many genes up and down from a combined signature file.
+#' Summarise how many genes up and down from a combined signature file
 #'
 #' The combined signature file should be produced by CoarfaLab-tools; and of the format: first column for rownames, subsequent columns comparison names, values fold changes.
 #'
@@ -32,5 +32,5 @@ summariseSignatures <- function(combined_signatures_file, output_file, gsub_rows
 
     write.csv(summaries, file = output_file)
 
-    return(summaries)
+    return(data.table::data.table(summaries))
 }
