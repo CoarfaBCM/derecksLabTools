@@ -5,7 +5,7 @@
 #' \figure{combined-sig.log2.png}
 #'
 #' @param combined_signatures_file \[type: character\] A combined signature file; produced by running CoarfaLab-tools: `combineGeneSignatures.cc.py -g "sig.*" -o combined-sig &> log.combined-sig`
-#' @param output_file \[type: character\] Output file.
+#' @param output_file \[type: character\] Output file, csv format.
 #'
 #' @return data.table
 #' @export

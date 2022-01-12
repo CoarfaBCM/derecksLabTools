@@ -13,7 +13,7 @@ summariseSignatures(
 \arguments{
 \item{combined_signatures_file}{[type: character] A combined signature file; produced by running CoarfaLab-tools: \verb{combineGeneSignatures.cc.py -g "sig.*" -o combined-sig &> log.combined-sig}}
 
-\item{output_file}{[type: character] Output file.}
+\item{output_file}{[type: character] Output file, csv format.}
 }
 \value{
 data.table
