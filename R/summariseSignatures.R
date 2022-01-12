@@ -32,5 +32,5 @@ summariseSignatures <- function(combined_signatures_file, output_file, gsub_rows
 
     write.csv(summaries, file = output_file)
 
-    return(data.table::data.table(summaries))
+    return(data.table::data.table(summaries, keep.rownames = "comparison"))
 }
