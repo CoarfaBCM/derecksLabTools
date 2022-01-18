@@ -5,22 +5,29 @@ Dereck’s lab tools package - installable via devtools.
 
 ## Index
 
-1.  `RNAseq_GSEAheatmaps`: Make heatmaps from combined GSEA reports after EdgeR
+1.  `RNAseq_GSEAheatmaps`: Make heatmaps from combined GSEA reports
+    after EdgeR
 2.  `cite_RNAseqGSEA`: RNAseq GSEA methods citation
-3.  `excel2List`: Read an excel workbook to a named list of data.tables or other type
-4.  `read.gmt`: Read a .gmt pathway type file as a list.
-5.  `sig2UpDownGmt`: Signature(s) files to GMT list; split up and down (inclusive) based on log2fc
-6.  `summariseSignatures`: Summarise how many genes up and down from a combined signature file
-7.  `table2tabs`: Parse Excel tables from one sheet to named tabs
-8.  `tabs2table`: Combine Excel sheets to single table
-9.  `valueCoordinates`: Coordinates of X values in a data.table\|data.frame
-10. `write.gmt`: Write GMT list to a formatted file.
+3.  `excel2List`: Read an excel workbook to a named list of data.tables
+    or other type
+4.  `list2Excel`: Save a named list of \\code{data.frames \|
+    \\code{data.tables to and Excel workbook with multiple sheets
+5.  `read.gmt`: Read a .gmt pathway type file as a list.
+6.  `sig2UpDownGmt`: Signature(s) files to GMT list; split up and down
+    (inclusive) based on log2fc
+7.  `summariseSignatures`: Summarise how many genes up and down from a
+    combined signature file
+8.  `table2tabs`: Parse Excel tables from one sheet to named tabs
+9.  `tabs2table`: Combine Excel sheets to single table
+10. `valueCoordinates`: Coordinates of X values in a
+    data.table\|data.frame
+11. `write.gmt`: Write GMT list to a formatted file.
 
 ## Install
 
 Use `devtools` to install this package:
 
-```r
+``` r
 devtools::install_github("CoarfaBCM/derecksLabTools", force = TRUE)
 library("derecksLabTools")
 ```
@@ -40,7 +47,7 @@ This function does: `data == value | is.na(data)`
 To create a truth table and then retrieves the column and row of where
 the value occurred as a data.frame.
 
-```r
+``` r
 test <- head(iris, 10)
 test[3:5, 1:2] <- NA
 derecksLabTools::valueCoordinates(test, value = NA)
@@ -60,7 +67,7 @@ Returns a list of desired type of a `data.frame` default is
 `data.table`. You can pass a coercion function either as a string or raw
 function, see usage:
 
-```r
+``` r
 derecksLabTools::excel2List(
     system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"),
     FUN_type = as.data.frame
@@ -86,7 +93,7 @@ Here is an example of the output:
 
 Usage:
 
-```r
+``` r
 path <- system.file(
     "extdata",
     "GSEA-combined-enrichment-profiles.xlsx",
@@ -163,7 +170,7 @@ Arguments:
         `data.frame`s - might be useful for analysis - the primary
         output is the file output.
 
-```r
+``` r
 derecksLabTools::table2tabs(
     file = "./data/table2tabs/comparisons-setup.xlsx",
     table_id = "ID",
@@ -205,7 +212,7 @@ Arguments:
         `data.frame`s - might be useful for analysis - the primary
         output is the file output.
 
-```r
+``` r
 derecksLabTools::tabs2table(
     dir = "./mycomparisons-are-here/",
     columns = 3,
@@ -219,7 +226,7 @@ derecksLabTools::tabs2table(
 Prints methods used for RNAseq and GSEA analysis, allows for variable
 interpolation to print a custom message.
 
-```r
+``` r
 cite_RNAseqGSEA(fold_changes = c(1.5, 2.0), normalisation_type = "TMM")
 ```
 
