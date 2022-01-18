@@ -10,8 +10,8 @@ Dereck’s lab tools package - installable via devtools.
 2.  `cite_RNAseqGSEA`: RNAseq GSEA methods citation
 3.  `excel2List`: Read an excel workbook to a named list of data.tables
     or other type
-4.  `list2Excel`: Save a named list of \\code{data.frames \|
-    \\code{data.tables to and Excel workbook with multiple sheets
+4.  `list2Excel`: Save a named list of `data.frame` |
+    `data.table` to and Excel workbook with multiple sheets
 5.  `read.gmt`: Read a .gmt pathway type file as a list.
 6.  `sig2UpDownGmt`: Signature(s) files to GMT list; split up and down
     (inclusive) based on log2fc
