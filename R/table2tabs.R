@@ -7,24 +7,26 @@
 #' Note that you can have other content on your excel sheet as long as it does not contain the table_id string used for parsing.
 #'
 #' @keywords table2tabs
-#' @param file String; path to a file type xlsx.
-#' @param table_id String \[default "ID"\]; this is used for identifying the individual tables on a single sheet.
-#' @param out_file String; the name of the output file - must have extension `.xlsx`.
-#' @param return Boolean \[default FALSE\]; if TRUE returns the parsed data.
+#' @param file \[type: character\] Path to a file type xlsx.
+#' @param output \[type: character\] The name of the output file - must have extension `.xlsx`.
+#' @param table_id \[type: character, default: "ID"\] This is used for identifying the individual tables on a single sheet.
+#' @param return \[type: logical, default: FALSE\] If TRUE returns the parsed data.
+#' @param ... Extra arguments to pass to \link[openxlsx]{`openxlsx::saveWorkbook`}
 #' @return Returns if return argument set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
 #' @examples
 #' path <- system.file("extdata", "comparisons-setup.xlsx", package = "derecksLabTools")
 #' table2tabs(
 #'     file = path,
+#'     output = "output-file.xlsx",
 #'     table_id = "ID",
-#'     out_file = "output-file.xlsx",
-#'     return = FALSE
+#'     return = FALSE,
+#'     overwrite = TRUE
 #' )
 #'
 #' @export
 #'
 
-table2tabs <- function(file = "", out_file = "", table_id = "ID", return = FALSE) {
+table2tabs <- function(file, output, table_id = "ID", return = FALSE, ...) {
     raw_data <- suppressMessages(readxl::read_excel(file, col_names = FALSE))
 
     sub_side <- raw_data[,min(which(grepl(table_id, raw_data))):ncol(raw_data)]
@@ -132,7 +134,7 @@ table2tabs <- function(file = "", out_file = "", table_id = "ID", return = FALSE
 
     }, col_named, names(col_named))
 
-    openxlsx::saveWorkbook(wb, file = out_file, overwrite = TRUE)
+    openxlsx::saveWorkbook(wb, file = output, ...)
 
     if(return) {
         return(col_named)

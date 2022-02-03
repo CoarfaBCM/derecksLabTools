@@ -4,16 +4,18 @@
 \alias{table2tabs}
 \title{Parse Excel tables from one sheet to named tabs}
 \usage{
-table2tabs(file = "", out_file = "", table_id = "ID", return = FALSE)
+table2tabs(file, output, table_id = "ID", return = FALSE, ...)
 }
 \arguments{
-\item{file}{String; path to a file type xlsx.}
+\item{file}{[type: character] Path to a file type xlsx.}
 
-\item{out_file}{String; the name of the output file - must have extension \code{.xlsx}.}
+\item{output}{[type: character] The name of the output file - must have extension \code{.xlsx}.}
 
-\item{table_id}{String [default "ID"]; this is used for identifying the individual tables on a single sheet.}
+\item{table_id}{[type: character, default: "ID"] This is used for identifying the individual tables on a single sheet.}
 
-\item{return}{Boolean [default FALSE]; if TRUE returns the parsed data.}
+\item{return}{[type: logical, default: FALSE] If TRUE returns the parsed data.}
+
+\item{...}{Extra arguments to pass to \link[openxlsx]{\code{openxlsx::saveWorkbook}}}
 }
 \value{
 Returns if return argument set to TRUE; a list of \code{data.frame}s - might be useful for analysis - the primary output is the file output.
@@ -30,9 +32,10 @@ Note that you can have other content on your excel sheet as long as it does not 
 path <- system.file("extdata", "comparisons-setup.xlsx", package = "derecksLabTools")
 table2tabs(
     file = path,
+    output = "output-file.xlsx",
     table_id = "ID",
-    out_file = "output-file.xlsx",
-    return = FALSE
+    return = FALSE,
+    overwrite = TRUE
 )
 
 }
