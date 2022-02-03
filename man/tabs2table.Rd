@@ -4,16 +4,24 @@
 \alias{tabs2table}
 \title{Combine Excel sheets to single table}
 \usage{
-tabs2table(dir = "", columns = 3, out_file = "", return = FALSE)
+tabs2table(
+  path,
+  output = "compiled-comparisons.xlsx",
+  columns = 3,
+  return = FALSE,
+  ...
+)
 }
 \arguments{
-\item{dir}{String; path to a directory; this will read all \code{.xlsx} files at this location.}
+\item{path}{[type: character] A path to a directory; this will read all \code{.xlsx} files at this location.}
 
-\item{columns}{Integer [default 3]; defines the number of columns to split the combined tables over. This splits the data and thus avoids having to scroll over a large amount of tables.}
+\item{output}{[type: character, default: "compiled-comparisons.xlsx"] The name of the output file - must have extension \code{.xlsx}.}
 
-\item{out_file}{String; the name of the output file - must have extension \code{.xlsx}.}
+\item{columns}{[type: numeric, default: 3] Integer defines the number of columns to split the combined tables over. This splits the data and thus avoids having to scroll over a large amount of tables.}
 
-\item{return}{Boolean [default FALSE]; if TRUE returns the parsed data.}
+\item{return}{[type: logical, default: FALSE] Boolean if TRUE returns the parsed data.}
+
+\item{...}{Extra arguments to pass to \link[openxlsx]{\code{openxlsx::saveWorkbook}}}
 }
 \value{
 Returns if return arguemnt set to TRUE; a list of \code{data.frame}s - might be useful for analysis - the primary output is the file output.
@@ -25,10 +33,19 @@ Combine all sheets (tabs) from one or more Excel workbooks to a single table (an
 dir.create("./test")
 file.copy(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), "./test")
 tabs2table(
-    dir = "./test",
+    path = "./test",
+    output = "output-file.xlsx",
     columns = 3,
-    out_file = "output-file.xlsx",
-    return = FALSE
+    return = FALSE,
+    overwrite = TRUE
+)
+
+tabs2table(
+    path = "./test/comparisons.xlsx",
+    output = "output-file.xlsx",
+    columns = 3,
+    return = FALSE,
+    overwrite = TRUE
 )
 
 }

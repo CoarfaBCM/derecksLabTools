@@ -1,6 +1,6 @@
 Package: derecksLabTools
 Title: A tool belt for my work at Coarfa lab Baylor College of Medicine
-Version: 0.0.9
+Version: 0.0.91
 Authors@R: 
     person(given = "Dereck",
            family = "de Mezquita",
@@ -18,4 +18,18 @@ Imports:
     readxl (>= 1.3.1),
     openxlsx (>= 4.2.3),
     pheatmap (>= 1.0.12),
-    stringr (>= 1.4.0)
+    stringr (>= 1.4.0),
+    fs (>= 1.5.2)
+Collate: 
+    'RNAseq_GSEAheatmaps.R'
+    'getIndex.R'
+    'cite_RNAseqGSEA.R'
+    'excel2List.R'
+    'list2Excel.R'
+    'read.gmt.R'
+    'sig2UpDownGmt.R'
+    'summariseSignatures.R'
+    'table2tabs.R'
+    'tabs2table.R'
+    'valueCoordinates.R'
+    'write.gmt.R'

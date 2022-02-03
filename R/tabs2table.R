@@ -2,30 +2,44 @@
 #'
 #' Combine all sheets (tabs) from one or more Excel workbooks to a single table (an index is generated - first tab), padding is added (empty rows and columns) between the indvidual tables. This is useful for getting an overview of your data and avoiding having to click n tabs.
 #' @keywords tabs2table
-#' @param dir String; path to a directory; this will read all `.xlsx` files at this location.
-#' @param columns Integer \[default 3\]; defines the number of columns to split the combined tables over. This splits the data and thus avoids having to scroll over a large amount of tables.
-#' @param out_file String; the name of the output file - must have extension `.xlsx`.
-#' @param return Boolean \[default FALSE\]; if TRUE returns the parsed data.
+#' @param path \[type: character\] A path to a directory; this will read all `.xlsx` files at this location.
+#' @param output \[type: character, default: "compiled-comparisons.xlsx"\] The name of the output file - must have extension `.xlsx`.
+#' @param columns \[type: numeric, default: 3\] Integer defines the number of columns to split the combined tables over. This splits the data and thus avoids having to scroll over a large amount of tables.
+#' @param return \[type: logical, default: FALSE\] Boolean if TRUE returns the parsed data.
+#' @param ... Extra arguments to pass to \link[openxlsx]{`openxlsx::saveWorkbook`}
+#'
 #' @return Returns if return arguemnt set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
+#'
 #' @examples
 #' dir.create("./test")
 #' file.copy(system.file("extdata", "comparisons.xlsx", package = "derecksLabTools"), "./test")
 #' tabs2table(
-#'     dir = "./test",
+#'     path = "./test",
+#'     output = "output-file.xlsx",
 #'     columns = 3,
-#'     out_file = "output-file.xlsx",
-#'     return = FALSE
+#'     return = FALSE,
+#'     overwrite = TRUE
+#' )
+#'
+#' tabs2table(
+#'     path = "./test/comparisons.xlsx",
+#'     output = "output-file.xlsx",
+#'     columns = 3,
+#'     return = FALSE,
+#'     overwrite = TRUE
 #' )
 #'
 #' @export
 #'
 
-tabs2table <- function(dir = "", columns = 3, out_file = "", return = FALSE) {
-    paths <- list.files(dir, full.names = TRUE)
+tabs2table <- function(path, output = "compiled-comparisons.xlsx", columns = 3, return = FALSE, ...) {
+    if(fs::is_dir(path)) {
+        path <- list.files(path, full.names = TRUE, recursive = FALSE)
+    }
 
-    names(paths) <- lapply(paths, "basename")
+    names(path) <- lapply(path, "basename")
 
-    comparisons <- lapply(paths, function(path) {
+    comparisons <- lapply(path, function(path) {
         sheets <- readxl::excel_sheets(path)
         names(sheets) <- sheets
         return(lapply(sheets, function(sheet) {
@@ -62,21 +76,6 @@ tabs2table <- function(dir = "", columns = 3, out_file = "", return = FALSE) {
         return(list)
     })
 
-    #----
-    # sub_len <- ceiling(length(unnamed_cols) / columns)
-    # sub <- vector(mode = "list")
-    #
-    # for (i in seq(1, length(unnamed_cols), by = 10)) {
-    #     end <- i + sub_len;
-    #
-    #     if(end > length(unnamed_cols)) {
-    #         end <- length(unnamed_cols)
-    #     }
-    #
-    #     sub[[(length(sub) + 1)]] <- unnamed_cols[i:end]
-    # }
-
-    #----
     num_per_array <- ceiling(length(unnamed_cols) / columns)
     num_per_array <- if(num_per_array < 1) 1 else num_per_array
 
@@ -153,11 +152,9 @@ tabs2table <- function(dir = "", columns = 3, out_file = "", return = FALSE) {
 
     }, bound_indexed, names(bound_indexed))
 
-    openxlsx::saveWorkbook(wb, file = out_file, overwrite = TRUE)
+    openxlsx::saveWorkbook(wb, file = output, ...)
 
     if(return) {
         return(bound_indexed)
     }
 }
-
-
