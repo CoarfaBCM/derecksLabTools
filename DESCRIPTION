@@ -24,6 +24,7 @@ Collate:
     'RNAseq_GSEAheatmaps.R'
     'getIndex.R'
     'cite_RNAseqGSEA.R'
+    'dtcolnames.R'
     'excel2List.R'
     'list2Excel.R'
     'read.gmt.R'
