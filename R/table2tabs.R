@@ -11,7 +11,7 @@
 #' @param output \[type: character\] The name of the output file - must have extension `.xlsx`.
 #' @param table_id \[type: character, default: "ID"\] This is used for identifying the individual tables on a single sheet.
 #' @param return \[type: logical, default: FALSE\] If TRUE returns the parsed data.
-#' @param ... Extra arguments to pass to \link[openxlsx]{`saveWorkbook`}
+#' @param ... Extra arguments to passed to \code{openxlsx::saveWorkbook}
 #' @return Returns if return argument set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
 #' @examples
 #' path <- system.file("extdata", "comparisons-setup.xlsx", package = "derecksLabTools")
