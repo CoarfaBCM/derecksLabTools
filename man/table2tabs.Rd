@@ -15,7 +15,7 @@ table2tabs(file, output, table_id = "ID", return = FALSE, ...)
 
 \item{return}{[type: logical, default: FALSE] If TRUE returns the parsed data.}
 
-\item{...}{Extra arguments to pass to \link[openxlsx]{\code{openxlsx::saveWorkbook}}}
+\item{...}{Extra arguments to pass to \link[openxlsx]{\code{saveWorkbook}}}
 }
 \value{
 Returns if return argument set to TRUE; a list of \code{data.frame}s - might be useful for analysis - the primary output is the file output.

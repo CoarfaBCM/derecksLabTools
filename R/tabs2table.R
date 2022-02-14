@@ -6,7 +6,7 @@
 #' @param output \[type: character, default: "compiled-comparisons.xlsx"\] The name of the output file - must have extension `.xlsx`.
 #' @param columns \[type: numeric, default: 3\] Integer defines the number of columns to split the combined tables over. This splits the data and thus avoids having to scroll over a large amount of tables.
 #' @param return \[type: logical, default: FALSE\] Boolean if TRUE returns the parsed data.
-#' @param ... Extra arguments to pass to \link[openxlsx]{`openxlsx::saveWorkbook`}
+#' @param ... Extra arguments to pass to \link[openxlsx]{`saveWorkbook`}
 #'
 #' @return Returns if return arguemnt set to TRUE; a list of `data.frame`s - might be useful for analysis - the primary output is the file output.
 #'
