@@ -27,7 +27,7 @@
 #'
 
 table2tabs <- function(file, output, table_id = "ID", return = FALSE, ...) {
-    raw_data <- suppressMessages(readxl::read_excel(file, col_names = FALSE))
+    raw_data <- suppressMessages(readxl::read_excel(file, col_names = FALSE, sheet = 1))
 
     sub_side <- raw_data[,min(which(grepl(table_id, raw_data))):ncol(raw_data)]
 
