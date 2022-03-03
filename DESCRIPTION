@@ -19,9 +19,11 @@ Imports:
     openxlsx (>= 4.2.3),
     pheatmap (>= 1.0.12),
     stringr (>= 1.4.0),
-    fs (>= 1.5.2)
+    fs (>= 1.5.2),
+    ggrepel (>= 0.9.1)
 Collate: 
     'RNAseq_GSEAheatmaps.R'
+    'Volcano.R'
     'getIndex.R'
     'cite_RNAseqGSEA.R'
     'dtcolnames.R'
