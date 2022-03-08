@@ -57,6 +57,8 @@ Volcano <- setClass(
         if(length(object@head_labels) != 1) {
             stop('Slot "head_labels" must be of type numeric length of 1.')
         }
+
+        return(TRUE)
     }
 )
 
@@ -72,8 +74,8 @@ setMethod("initialize", "Volcano", function(.Object, ...) {
 
     # add colours to the object
     copy[, highlight := data.table::fcase(
-        log2FC < -.Object@log2_cutoff & fdr < .Object@statistic_cutoff, "blue",
-        log2FC > .Object@log2_cutoff & fdr < .Object@statistic_cutoff, "red",
+        log2FC < -.Object@log2_cutoff & get(.Object@statistic) < .Object@statistic_cutoff, "blue",
+        log2FC > .Object@log2_cutoff & get(.Object@statistic) < .Object@statistic_cutoff, "red",
         default = "black"
     )]
 
