@@ -34,5 +34,6 @@ Collate:
     'summariseSignatures.R'
     'table2tabs.R'
     'tabs2table.R'
+    'to.data.frame.R'
     'valueCoordinates.R'
     'write.gmt.R'
