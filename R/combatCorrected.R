@@ -1,5 +1,5 @@
 
-#' @title \code{S4} class; do sva::ComBat_seq batch correction
+#' @title \code{S4} class; does sva::ComBat_seq batch correction
 #' @author Dereck de Mezquita
 #'
 #' This class with its constructor makes it easy to do batch correction. Simply provide the list of \code{data.table}s to the class instantiator. This will return the corrected dataset along with PCA plots of before and after in a list.
