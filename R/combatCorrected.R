@@ -1,4 +1,7 @@
 
+#' @include to.matrix.R to.data.frame.R dtcolnames.R
+NULL
+
 #' @title \code{S4} class; does sva::ComBat_seq batch correction
 #' @author Dereck de Mezquita
 #'
