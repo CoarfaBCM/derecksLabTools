@@ -47,7 +47,7 @@ Volcano <- setClass(
         }
 
         if(length(object@statistic_cutoff) != 1) {
-            stop('Slot "statistic" must be of type numeric length of 1.')
+            stop('Slot "statistic_cutoff" must be of type numeric length of 1.')
         }
 
         if(length(object@log2_cutoff) != 1) {
