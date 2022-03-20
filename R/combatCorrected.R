@@ -6,6 +6,12 @@ NULL
 #' @author Dereck de Mezquita
 #'
 #' This class with its constructor makes it easy to do batch correction. Simply provide the list of \code{data.table}s to the class instantiator. This will return the corrected dataset along with PCA plots of before and after in a list.
+#' 
+#' The \code{data.table}s must have the columns:
+#' 
+#' 1. \code{GeneID}
+#' 2. \code{GeneBiotype}
+#' 3. \code{GeneSymbol}
 #'
 #' @slot corrected data.table.
 #' @slot batches list.
@@ -14,8 +20,8 @@ NULL
 #'
 #' @return
 #' @export
-combatCorrected <- setClass(
-    "combatCorrected",
+combatRNAseq <- setClass(
+    "combatRNAseq",
     slots = list(
         corrected = "data.table",
         batches = "list",
@@ -42,7 +48,7 @@ combatCorrected <- setClass(
     }
 )
 
-setMethod("initialize", "combatCorrected", function(.Object, ...) {
+setMethod("initialize", "combatRNAseq", function(.Object, ...) {
     .Object <- callNextMethod(.Object, ...)
 
     common_cols <- c("GeneID", "GeneSymbol", "GeneBiotype")
