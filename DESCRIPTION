@@ -20,7 +20,10 @@ Imports:
     pheatmap (>= 1.0.12),
     stringr (>= 1.4.0),
     fs (>= 1.5.2),
-    ggrepel (>= 0.9.1)
+    ggrepel (>= 0.9.1),
+    sva (>= 3.42.0),
+    ggplot2 (>= 3.3.5),
+    ggfortify (>= 0.4.14)
 Collate: 
     'RNAseq_GSEAheatmaps.R'
     'Volcano.R'
@@ -29,7 +32,7 @@ Collate:
     'dtcolnames.R'
     'to.data.frame.R'
     'to.matrix.R'
-    'combatCorrected.R'
+    'combatRNAseq.R'
     'excel2List.R'
     'list2Excel.R'
     'read.gmt.R'
