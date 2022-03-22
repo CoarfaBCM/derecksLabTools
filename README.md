@@ -7,21 +7,31 @@ Dereck’s lab tools package - installable via devtools.
 
 1.  `RNAseq_GSEAheatmaps`: Make heatmaps from combined GSEA reports
     after EdgeR
-2.  `cite_RNAseqGSEA`: RNAseq GSEA methods citation
-3.  `excel2List`: Read an excel workbook to a named list of data.tables
+2.  `Volcano-class`: \\code{S4 class; Volcano data.table manipulated and
+    prepared for plotting
+3.  `cite_RNAseqGSEA`: RNAseq GSEA methods citation
+4.  `dtcolnames`: Get the data column names from data.table; exclude ID
+    col
+5.  `excel2List`: Read an excel workbook to a named list of data.tables
     or other type
-4.  `list2Excel`: Save a named list of `data.frame` |
-    `data.table` to and Excel workbook with multiple sheets
-5.  `read.gmt`: Read a .gmt pathway type file as a list.
-6.  `sig2UpDownGmt`: Signature(s) files to GMT list; split up and down
+6.  `list2Excel`: Save a named list of \\code{data.frames \|
+    \\code{data.tables to and Excel workbook with multiple sheets
+7.  `plot,Volcano,ANY-method`: \\code{S4 method for \\code{Volcano
+    \\code{S4 class
+8.  `read.gmt`: Read a .gmt pathway type file as a list.
+9.  `sig2UpDownGmt`: Signature(s) files to GMT list; split up and down
     (inclusive) based on log2fc
-7.  `summariseSignatures`: Summarise how many genes up and down from a
+10. `summariseSignatures`: Summarise how many genes up and down from a
     combined signature file
-8.  `table2tabs`: Parse Excel tables from one sheet to named tabs
-9.  `tabs2table`: Combine Excel sheets to single table
-10. `valueCoordinates`: Coordinates of X values in a
+11. `table2tabs`: Parse Excel tables from one sheet to named tabs
+12. `tabs2table`: Combine Excel sheets to single table
+13. `to.data.frame`: \\code{S3 generic; convert to data.frame
+    \\strong{move column to \\code{rownames
+14. `to.matrix`: \\code{S3 generic; convert to matrix \\strong{move
+    column to \\code{rownames
+15. `valueCoordinates`: Coordinates of X values in a
     data.table\|data.frame
-11. `write.gmt`: Write GMT list to a formatted file.
+16. `write.gmt`: Write GMT list to a formatted file.
 
 ## Install
 

@@ -20,8 +20,8 @@ NULL
 #'
 #' @return
 #' @export
-combatRNAseq <- setClass(
-    "combatRNAseq",
+CombatRNAseq <- setClass(
+    "CombatRNAseq",
     slots = list(
         corrected = "data.table",
         batches = "list",
@@ -48,7 +48,7 @@ combatRNAseq <- setClass(
     }
 )
 
-setMethod("initialize", "combatRNAseq", function(.Object, ...) {
+setMethod("initialize", "CombatRNAseq", function(.Object, ...) {
     .Object <- callNextMethod(.Object, ...)
 
     common_cols <- c("GeneID", "GeneSymbol", "GeneBiotype")

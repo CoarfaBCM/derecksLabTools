@@ -25,14 +25,14 @@ Imports:
     ggplot2 (>= 3.3.5),
     ggfortify (>= 0.4.14)
 Collate: 
+    'dtcolnames.R'
+    'to.data.frame.R'
+    'to.matrix.R'
+    'CombatRNAseq.R'
     'RNAseq_GSEAheatmaps.R'
     'Volcano.R'
     'getIndex.R'
     'cite_RNAseqGSEA.R'
-    'dtcolnames.R'
-    'to.data.frame.R'
-    'to.matrix.R'
-    'combatRNAseq.R'
     'excel2List.R'
     'list2Excel.R'
     'read.gmt.R'
